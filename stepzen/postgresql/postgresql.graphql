@@ -103,14 +103,13 @@ type Mutation {
   insertPost(
     image: String!
     body: String!
-    created_at: DateTime!
     subreddit_id: ID!
     title: String!
     username: String!
   ): Post
     @dbquery(
       type: "postgresql"
-      schema: "public"
+      # schema: "public"
       table: "post"
       dml: INSERT
       configuration: "postgresql_config"

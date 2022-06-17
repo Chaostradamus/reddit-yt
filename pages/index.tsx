@@ -4,13 +4,13 @@ import PostBox from "../components/PostBox";
 
 const Home: NextPage = () => {
   return (
-    <div>
+    <div className="my-7 mx-auto ax-w-5xl">
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      {/* postbox */}
-      <PostBox/>
+      <PostBox />
+      <div className="flex"></div>
     </div>
   );
 };

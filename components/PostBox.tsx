@@ -23,11 +23,11 @@ function PostBox() {
   } = useForm<FormData>();
 
   const onSubmit = handleSubmit(async (formData) => {
-
+console.log(formData)
   })
 
   return (
-    <form className="sticky top-16 z-50 bg-white border rounded-md border-gray-300 p-2">
+    <form onSubmit={onSubmit} className="sticky top-16 z-50 bg-white border rounded-md border-gray-300 p-2">
       <div className="flex items-center space-x-3">
         <Avatar />
         <input
@@ -47,10 +47,12 @@ function PostBox() {
         />
         <LinkIcon className="h-6 text-gray-300" />
       </div>
+
+
       {!!watch("postTitle") && (
         <div className="flex flex-col py-2">
           <div className="flex items-center px-2">
-            <p className="min-w[90px]">Body:</p>
+            <p className="min-w-[90px]">Body:</p>
             <input
               className="m-2 flex-1 bg-blue-50 p-2 outline-none"
               {...register("postBody")}
@@ -60,7 +62,7 @@ function PostBox() {
           </div>
 
           <div className="flex items-center px-2">
-            <p className="min-w[90px]">Subreddit:</p>
+            <p className="min-w-[90px]">Subreddit:</p>
             <input
               className="m-2 flex-1 bg-blue-50 p-2 outline-none"
               {...register("subreddit", { required: true })}
@@ -70,7 +72,7 @@ function PostBox() {
           </div>
           {imageBoxOpen && (
             <div className="flex items-center px-2">
-              <p className="min-w[90px]">Image URL:</p>
+              <p className="min-w-[90px]">Image URL:</p>
               <input
                 className="m-2 flex-1 bg-blue-50 p-2 outline-none"
                 {...register("postImage")}
@@ -87,7 +89,7 @@ function PostBox() {
                 <p>- A post title is required</p>
               )}
               {errors.subreddit?.type === "required" && (
-                <p>- A post title is required</p>
+                <p>- A subreddit is required</p>
               )}
             </div>
           )}
